@@ -1,5 +1,6 @@
 package io.ashdavies.cinnamon;
 
+import android.support.v7.app.AppCompatDelegate;
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
 import io.ashdavies.cinnamon.inject.DaggerApplicationComponent;
@@ -20,6 +21,7 @@ public class Cinnamon extends DaggerApplication {
     super.onCreate();
 
     setUpTimber();
+    setUpNightMode();
   }
 
   private void setUpTimber() {
@@ -29,5 +31,9 @@ public class Cinnamon extends DaggerApplication {
     }
 
     Timber.plant(tree);
+  }
+
+  private void setUpNightMode() {
+    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
   }
 }

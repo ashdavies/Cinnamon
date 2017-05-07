@@ -26,12 +26,16 @@ ext.versions = [
 
     butterknife: '8.5.1',
     dagger     : '2.11-rc2',
+    gson       : '2.8.0',
 
     google     : [
         play: [
             services: '10.2.0'
         ]
     ],
+
+    okHttp     : '3.5.0',
+    retrofit   : '2.2.0',
 
     rx         : [
         java    : '2.0.6',
@@ -90,6 +94,8 @@ ext.libraries = [
         ]
     ],
 
+    gson       : "com.google.code.gson:gson:$versions.gson",
+
     firebase   : [
         core     : "com.google.firebase:firebase-core:$versions.google.play.services",
         auth     : "com.google.firebase:firebase-auth:$versions.google.play.services",
@@ -99,13 +105,24 @@ ext.libraries = [
         analytics: "com.google.firebase:firebase-analytics:$versions.google.play.services",
     ],
 
+    okhttp     : [
+        core   : "com.squareup.okhttp3:okhttp:$versions.okHttp",
+        logging: "com.squareup.okhttp3:logging-interceptor:$versions.okHttp"
+    ],
+
+    retrofit   : [
+        core     : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        adapter  : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+        converter: "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    ],
+
     rx         : [
         java    : "io.reactivex.rxjava2:rxjava:$versions.rx.java",
         android : "io.reactivex.rxjava2:rxandroid:$versions.rx.android",
         firebase: "io.ashdavies.rx:rx-firebase:$versions.rx.firebase",
     ],
 
-    timber: "com.jakewharton.timber:timber:$versions.timber",
+    timber     : "com.jakewharton.timber:timber:$versions.timber",
 
     jUnit      : "junit:junit:$versions.jUnit",
     truth      : "com.google.truth:truth:$versions.truth",

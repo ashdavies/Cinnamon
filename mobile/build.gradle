@@ -52,19 +52,6 @@ dependencies {
   compile libraries.android.support.design
   compile libraries.android.support.recycler
 
-  // Firebase
-  compile libraries.firebase.core
-  compile libraries.firebase.auth
-  compile libraries.firebase.database
-  compile libraries.firebase.config
-  compile libraries.firebase.crash
-  compile libraries.firebase.analytics
-
-  // RxJava
-  compile libraries.rx.java
-  compile libraries.rx.android
-  compile libraries.rx.firebase
-
   // ButterKnife
   compile libraries.butterknife.core
   annotationProcessor libraries.butterknife.compiler
@@ -74,6 +61,27 @@ dependencies {
   compile libraries.dagger.android.support
   annotationProcessor libraries.dagger.compiler
   annotationProcessor libraries.dagger.android.processor
+
+  // Firebase
+  compile libraries.firebase.core
+  compile libraries.firebase.auth
+  compile libraries.firebase.database
+  compile libraries.firebase.config
+  compile libraries.firebase.crash
+  compile libraries.firebase.analytics
+
+  // Network
+  compile libraries.gson
+  compile libraries.retrofit.core
+  compile libraries.retrofit.adapter
+  compile libraries.retrofit.converter
+  compile libraries.okhttp.core
+  compile libraries.okhttp.logging
+
+  // RxJava
+  compile libraries.rx.java
+  compile libraries.rx.android
+  compile libraries.rx.firebase
 
   // Timber
   compile libraries.timber
