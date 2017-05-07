@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- Material Colours -->
+  <color name="primary">#6d1f09</color>
+  <color name="primary_dark">#3c2e27</color>
+  <color name="primary_light">#a05d31</color>
+
+  <color name="accent">#cfa67c</color>
+  <color name="accent_light">#eee4d0</color>
+
+  <color name="primary_text">#212121</color>
+  <color name="secondary_text">#757575</color>
+  <color name="hint_text">@color/accent</color>
+
+  <color name="icons">#FFFFFF</color>
+  <color name="divider">#BDBDBD</color>
+  
+</resources>

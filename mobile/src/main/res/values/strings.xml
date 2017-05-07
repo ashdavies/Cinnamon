@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- Application -->
+  <string name="application">Cinnamon</string>
+
+  <!-- Actions -->
+  <string name="action_favourite">Favourite</string>
+  <string name="action_repost">Repost</string>
+  <string name="action_share">Share</string>
+  <string name="action_sign_in">Sign In</string>
+  <string name="action_sign_out">Sign Out</string>
+  <string name="action_ok">OK</string>
+
+  <!-- Invitation -->
+  <string name="invitation_title">Cinnamon Invite</string>
+  <string name="invitation_message">Let’s imagine a language which has only two valid sentences…</string>
+  <string name="invitation_cta">Call to action</string>
+
+  <!-- Labels -->
+  <string name="label_minutes">%dm</string>
+  <string name="label_hours">%dh</string>
+  <string name="label_error">Error</string>
+  <string name="label_reposted">%s reposted</string>
+
+  <!-- Trade Balances -->
+  <string name="trade_balance_title">Trade Balance</string>
+  <string name="trade_balance_description">Total margin currency balance.</string>
+
+  <string name="trade_equity_title">Equity</string>
+  <string name="trade_equity_description">Trade balance combined with unrealised profit/loss.</string>
+
+  <string name="used_margin_title">Used Margin</string>
+  <string name="used_margin_description">Total margin amount used in open positions.</string>
+
+  <string name="free_margin_title">Free Margin</string>
+  <string name="free_margin_description">Usable margin balance. Equal to equity minus used margin.</string>
+
+  <string name="margin_level_title">Margin Level</string>
+  <string name="margin_level_description">Percentage ratio of equity to used margin</string>
+</resources>

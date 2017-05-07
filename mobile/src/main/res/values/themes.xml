@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- Base Themes -->
+  <style name="Base.Theme.Cinnamon" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <item name="android:buttonStyle">@style/Theme.Cinnamon.Button</item>
+    <item name="android:editTextStyle">@style/Theme.Cinnamon.EditText</item>
+
+    <item name="colorPrimary">#673AB7</item>
+    <item name="colorPrimaryDark">#512DA8</item>
+    <item name="colorAccent">#FF4081</item>
+  </style>
+
+  <!-- Main Themes -->
+  <style name="Theme.Cinnamon" parent="Base.Theme.Cinnamon"/>
+
+  <!-- Fullscreen Themes -->
+  <style name="Theme.Cinnamon.Fullscreen" parent="Theme.Cinnamon"/>
+
+  <style name="Theme.Cinnamon.Fullscreen.Splash" parent="Theme.Cinnamon.Fullscreen">
+    <item name="android:windowBackground">@color/accent</item>
+  </style>
+
+  <!-- Container Themes -->
+  <style name="Theme.Cinnamon.Layout">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:padding">@dimen/default_padding</item>
+  </style>
+
+  <style name="Theme.Cinnamon.Layout.Horizontal" parent="Theme.Cinnamon.Layout">
+    <item name="android:orientation">horizontal</item>
+  </style>
+
+  <style name="Theme.Cinnamon.Layout.Vertical" parent="Theme.Cinnamon.Layout">
+    <item name="android:orientation">vertical</item>
+  </style>
+
+  <!-- Button Themes -->
+  <style name="Theme.Cinnamon.Button" parent="Widget.AppCompat.Button">
+    <item name="android:textAllCaps">true</item>
+  </style>
+
+  <style name="Theme.Cinnamon.Button.Action" parent="Widget.AppCompat.Button.Colored">
+    <item name="android:layout_width">@dimen/action_size</item>
+    <item name="android:layout_height">@dimen/action_size</item>
+    <item name="android:layout_margin">@dimen/action_margin</item>
+    <item name="android:layout_gravity">end|bottom</item>
+    <item name="android:padding">@dimen/action_padding</item>
+
+    <item name="android:background">@drawable/action_background</item>
+  </style>
+
+  <style name="Theme.Cinnamon.Button.Borderless" parent="Widget.AppCompat.Button.Borderless"/>
+
+  <style name="Theme.Cinnamon.Button.Colored" parent="Widget.AppCompat.Button.Colored">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:padding">@dimen/default_padding</item>
+  </style>
+
+  <!-- Card Themes -->
+  <style name="Theme.Cinnamon.Card" parent="CardView">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_margin">@dimen/default_margin</item>
+
+    <item name="cardCornerRadius">@dimen/default_radius</item>
+    <item name="cardElevation">@dimen/default_elevation</item>
+  </style>
+
+  <!-- Dialog Themes -->
+  <style name="Theme.Cinnamon.Dialog"/>
+
+  <style name="Theme.Cinnamon.Dialog.Fullscreen">
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowIsFloating">true</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+
+  <!-- TextAppearance Themes -->
+  <style name="Theme.Cinnamon.TextAppearance"/>
+
+  <style name="Theme.Cinnamon.TextAppearance.Standard" parent="TextAppearance.AppCompat.Body1">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+
+    <item name="android:textSize">@dimen/secondary_text</item>
+  </style>
+
+  <style name="Theme.Cinnamon.TextAppearance.Bold" parent="Theme.Cinnamon.TextAppearance.Standard">
+    <item name="android:textStyle">bold</item>
+  </style>
+
+  <style name="Theme.Cinnamon.TextAppearance.Headline" parent="TextAppearance.AppCompat.Headline">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginLeft">@dimen/default_margin</item>
+    <item name="android:layout_marginRight">@dimen/default_margin</item>
+    <item name="android:gravity">center_horizontal</item>
+
+    <item name="android:textSize">@dimen/primary_text</item>
+  </style>
+
+  <style name="Theme.Cinnamon.TextAppearance.Quote" parent="Theme.Cinnamon.TextAppearance.Standard"/>
+
+  <!-- EditText Themes -->
+  <style name="Theme.Cinnamon.EditText" parent="Widget.AppCompat.EditText">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+
+    <item name="android:textSize">@dimen/primary_text</item>
+  </style>
+
+  <!-- TextInputLayout Themes -->
+  <style name="Theme.Cinnamon.TextInputLayout" parent="Widget.Design.TextInputLayout">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginTop">@dimen/list_content_spacing</item>
+    <item name="android:layout_marginRight">@dimen/default_margin</item>
+    <item name="android:layout_marginBottom">@dimen/list_content_spacing</item>
+    <item name="android:layout_marginLeft">@dimen/default_margin</item>
+  </style>
+</resources>

@@ -1,0 +1,96 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.4.0-alpha7'
+    classpath 'com.google.gms:google-services:3.0.0'
+
+    classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
+  }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'jacoco-android'
+
+apply from: '../tools/script-dependencies.gradle'
+apply from: '../tools/script-git-version.gradle'
+
+android {
+  compileSdkVersion configuration.compileSdkVersion
+  buildToolsVersion configuration.buildToolsVersion
+
+  buildTypes {
+    debug {
+      minifyEnabled false
+      multiDexEnabled true
+    }
+  }
+
+  defaultConfig {
+    applicationId 'io.ashdavies.cinnamon'
+
+    minSdkVersion configuration.minSdkVersion
+    targetSdkVersion configuration.targetSdkVersion
+
+    versionCode configuration.versionCode
+    versionName configuration.versionName
+  }
+
+  compileOptions {
+    sourceCompatibility configuration.sourceCompatibility
+    targetCompatibility configuration.targetCompatibility
+  }
+}
+
+dependencies {
+
+  // Support
+  compile libraries.android.support.compat
+  compile libraries.android.support.cards
+  compile libraries.android.support.design
+  compile libraries.android.support.recycler
+
+  // Firebase
+  compile libraries.firebase.core
+  compile libraries.firebase.auth
+  compile libraries.firebase.database
+  compile libraries.firebase.config
+  compile libraries.firebase.crash
+  compile libraries.firebase.analytics
+
+  // RxJava
+  compile libraries.rx.java
+  compile libraries.rx.android
+  compile libraries.rx.firebase
+
+  // ButterKnife
+  compile libraries.butterknife.core
+  annotationProcessor libraries.butterknife.compiler
+
+  // Dagger
+  compile libraries.dagger.core
+  compile libraries.dagger.android.support
+  annotationProcessor libraries.dagger.compiler
+  annotationProcessor libraries.dagger.android.processor
+
+  // Timber
+  compile libraries.timber
+
+  // AutoValue
+  compile libraries.auto.value.core
+  annotationProcessor libraries.auto.value.compiler
+
+  // AutoValue: Firebase
+  compile libraries.auto.firebase.adapter
+  provided libraries.auto.firebase.core
+  annotationProcessor libraries.auto.firebase.compiler
+
+  // Testing
+  testCompile libraries.jUnit
+  testCompile libraries.truth
+  testCompile libraries.mockito
+}
+
+apply plugin: 'com.google.gms.google-services'
