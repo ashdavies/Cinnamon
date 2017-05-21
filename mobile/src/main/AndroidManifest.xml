@@ -2,17 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.ashdavies.cinnamon">
 
-  <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.CAMERA"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
   <application android:name="io.ashdavies.cinnamon.Cinnamon"
-      android:allowBackup="false"
+      android:allowBackup="true"
       android:icon="@mipmap/ic_launcher"
       android:label="@string/application"
-      android:supportsRtl="false"
+      android:supportsRtl="true"
       android:theme="@style/Theme.Cinnamon">
 
-    <activity android:name="io.ashdavies.cinnamon.signin.SignInActivity"
+    <activity android:name="io.ashdavies.cinnamon.account.AccountActivity"
         android:theme="@style/Theme.Cinnamon.Fullscreen.Splash"
         android:screenOrientation="portrait"/>
 

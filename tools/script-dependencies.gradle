@@ -63,7 +63,7 @@ ext.libraries = [
             cards   : "com.android.support:cardview-v7:$versions.android.support",
             design  : "com.android.support:design:$versions.android.support",
             recycler: "com.android.support:recyclerview-v7:$versions.android.support"
-        ],
+        ]
     ],
 
     auto       : [
@@ -91,6 +91,13 @@ ext.libraries = [
         android : [
             support  : "com.google.dagger:dagger-android-support:$versions.dagger",
             processor: "com.google.dagger:dagger-android-processor:$versions.dagger"
+        ]
+    ],
+
+    google     : [
+        play: [
+            services: "com.google.android.gms:play-services:$versions.google.play.services",
+            vision  : "com.google.android.gms:play-services-vision:$versions.google.play.services"
         ]
     ],
 

@@ -1,10 +1,14 @@
 buildscript {
   repositories {
     jcenter()
+
+    maven {
+      url 'https://maven.google.com'
+    }
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:2.4.0-alpha7'
+    classpath 'com.android.tools.build:gradle:3.0.0-alpha1'
     classpath 'com.google.gms:google-services:3.0.0'
 
     classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
@@ -52,6 +56,10 @@ dependencies {
   compile libraries.android.support.design
   compile libraries.android.support.recycler
 
+  // Google Play
+  compile libraries.google.play.services
+  compile libraries.google.play.vision
+
   // ButterKnife
   compile libraries.butterknife.core
   annotationProcessor libraries.butterknife.compiler
@@ -85,6 +93,11 @@ dependencies {
 
   // Timber
   compile libraries.timber
+
+  // Barcode
+  compile 'com.edwardvanraak:MaterialBarcodeScanner:0.0.6-ALPHA'
+
+  debugCompile 'com.facebook.stetho:stetho:1.5.0'
 
   // AutoValue
   compile libraries.auto.value.core

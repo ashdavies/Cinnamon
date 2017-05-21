@@ -2,15 +2,15 @@ package io.ashdavies.cinnamon.inject;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
+import io.ashdavies.cinnamon.account.AccountActivity;
 import io.ashdavies.cinnamon.home.HomeActivity;
-import io.ashdavies.cinnamon.signin.SignInActivity;
 
 @Module
 abstract class AndroidBindingModule {
 
   @ContributesAndroidInjector
-  abstract HomeActivity chatActivity();
+  abstract AccountActivity signInActivity();
 
   @ContributesAndroidInjector
-  abstract SignInActivity signInActivity();
+  abstract HomeActivity homeActivity();
 }

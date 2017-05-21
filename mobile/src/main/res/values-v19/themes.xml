@@ -2,13 +2,13 @@
 <resources>
 
   <!-- Fullscreen Themes -->
-  <style name="Theme.Cinnamon.Fullscreen" parent="Theme.Cinnamon">
+  <style name="Theme.Cinnamon.Fullscreen" parent="Base.Theme.Cinnamon.Fullscreen">
     <item name="android:windowTranslucentStatus">true</item>
     <item name="android:windowTranslucentNavigation">true</item>
   </style>
 
   <!-- Button Themes -->
-  <style name="Theme.Cinnamon.Button.Borderless" parent="Widget.AppCompat.Button.Borderless">
+  <style name="Theme.Cinnamon.Button.Borderless" parent="Base.Theme.Cinnamon.Button.Borderless">
     <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
   </style>
 </resources>

@@ -11,8 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import butterknife.BindView;
 import io.ashdavies.cinnamon.R;
+import io.ashdavies.cinnamon.account.AccountActivity;
 import io.ashdavies.cinnamon.activity.AbstractActivity;
-import io.ashdavies.cinnamon.signin.SignInActivity;
 import javax.inject.Inject;
 
 public class HomeActivity extends AbstractActivity implements HomeView {
@@ -30,6 +30,7 @@ public class HomeActivity extends AbstractActivity implements HomeView {
   @BindView(R.id.actions) FloatingActionButton action;
 
   @Inject HomePresenter presenter;
+  @Inject Typeface typeface;
 
   public static void start(Activity activity) {
     activity.startActivity(new Intent(activity, HomeActivity.class));
@@ -45,15 +46,13 @@ public class HomeActivity extends AbstractActivity implements HomeView {
   }
 
   private void setCollapsingToolbarFont() {
-    Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/product-sans-regular.ttf");
-
     collapsing.setCollapsedTitleTypeface(typeface);
     collapsing.setExpandedTitleTypeface(typeface);
   }
 
   @Override
   public void onBackPressed() {
-    SignInActivity.start(this);
+    AccountActivity.start(this);
     finish();
   }
 
@@ -75,7 +74,7 @@ public class HomeActivity extends AbstractActivity implements HomeView {
 
   @Override
   public void startSignInActivity() {
-    SignInActivity.start(this);
+    AccountActivity.start(this);
     finish();
   }
 }

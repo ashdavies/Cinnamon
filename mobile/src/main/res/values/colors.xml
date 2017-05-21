@@ -2,18 +2,18 @@
 <resources>
 
   <!-- Material Colours -->
-  <color name="primary">#6d1f09</color>
-  <color name="primary_dark">#3c2e27</color>
-  <color name="primary_light">#a05d31</color>
+  <color name="primary">#FFC107</color>
+  <color name="primary_dark">#FFA000</color>
+  <color name="primary_light">#FFECB3</color>
 
-  <color name="accent">#cfa67c</color>
-  <color name="accent_light">#eee4d0</color>
+  <color name="accent">#FF5722</color>
 
   <color name="primary_text">#212121</color>
   <color name="secondary_text">#757575</color>
-  <color name="hint_text">@color/accent</color>
 
-  <color name="icons">#FFFFFF</color>
+  <color name="icons">#212121</color>
   <color name="divider">#BDBDBD</color>
-  
+
+  <color name="transparent_black">#60000000</color>
+
 </resources>

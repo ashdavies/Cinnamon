@@ -6,4 +6,7 @@
     <item name="android:windowDrawsSystemBarBackgrounds">true</item>
   </style>
 
+  <style name="Theme.Cinnamon.Button" parent="Base.Theme.Cinnamon.Button">
+    <item name="android:elevation">@dimen/default_elevation</item>
+  </style>
 </resources>

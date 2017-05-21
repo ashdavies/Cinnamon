@@ -6,39 +6,66 @@
     <item name="android:buttonStyle">@style/Theme.Cinnamon.Button</item>
     <item name="android:editTextStyle">@style/Theme.Cinnamon.EditText</item>
 
-    <item name="colorPrimary">#673AB7</item>
-    <item name="colorPrimaryDark">#512DA8</item>
-    <item name="colorAccent">#FF4081</item>
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorPrimaryDark">@color/primary_dark</item>
+    <item name="colorAccent">@color/accent</item>
   </style>
 
   <!-- Main Themes -->
   <style name="Theme.Cinnamon" parent="Base.Theme.Cinnamon"/>
 
   <!-- Fullscreen Themes -->
-  <style name="Theme.Cinnamon.Fullscreen" parent="Theme.Cinnamon"/>
+  <style name="Base.Theme.Cinnamon.Fullscreen" parent="Base.Theme.Cinnamon"/>
+
+  <style name="Theme.Cinnamon.Fullscreen" parent="Base.Theme.Cinnamon.Fullscreen"/>
 
   <style name="Theme.Cinnamon.Fullscreen.Splash" parent="Theme.Cinnamon.Fullscreen">
-    <item name="android:windowBackground">@color/accent</item>
+    <item name="android:windowBackground">@color/primary_light</item>
   </style>
 
   <!-- Container Themes -->
   <style name="Theme.Cinnamon.Layout">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
+
+    <item name="android:fitsSystemWindows">true</item>
     <item name="android:padding">@dimen/default_padding</item>
   </style>
 
   <style name="Theme.Cinnamon.Layout.Horizontal" parent="Theme.Cinnamon.Layout">
+    <item name="android:gravity">center_horizontal</item>
     <item name="android:orientation">horizontal</item>
   </style>
 
   <style name="Theme.Cinnamon.Layout.Vertical" parent="Theme.Cinnamon.Layout">
+    <item name="android:gravity">center_vertical</item>
     <item name="android:orientation">vertical</item>
   </style>
 
   <!-- Button Themes -->
-  <style name="Theme.Cinnamon.Button" parent="Widget.AppCompat.Button">
-    <item name="android:textAllCaps">true</item>
+  <style name="Base.Theme.Cinnamon.Button" parent="Widget.AppCompat.Button">
+    <item name="android:background">@android:color/white</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_margin">@dimen/default_margin</item>
+
+    <item name="android:padding">@dimen/default_padding</item>
+
+    <item name="android:textAllCaps">false</item>
+    <item name="android:textColor">@color/secondary_text</item>
+  </style>
+
+  <style name="Theme.Cinnamon.Button" parent="Base.Theme.Cinnamon.Button"/>
+
+  <style name="Theme.Cinnamon.Button.Inline" parent="Theme.Cinnamon.Button">
+    <item name="android:background">?attr/selectableItemBackground</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_margin">@null</item>
+
+    <item name="android:padding">@dimen/default_padding_large</item>
+    <item name="android:drawablePadding">@dimen/default_padding_large</item>
+    <item name="android:gravity">start|center_vertical</item>
   </style>
 
   <style name="Theme.Cinnamon.Button.Action" parent="Widget.AppCompat.Button.Colored">
@@ -51,13 +78,17 @@
     <item name="android:background">@drawable/action_background</item>
   </style>
 
-  <style name="Theme.Cinnamon.Button.Borderless" parent="Widget.AppCompat.Button.Borderless"/>
+  <style name="Base.Theme.Cinnamon.Button.Borderless" parent="Widget.AppCompat.Button.Borderless"/>
 
-  <style name="Theme.Cinnamon.Button.Colored" parent="Widget.AppCompat.Button.Colored">
+  <style name="Theme.Cinnamon.Button.Borderless" parent="Base.Theme.Cinnamon.Button.Borderless"/>
+
+  <style name="Base.Theme.Cinnamon.Button.Colored" parent="Widget.AppCompat.Button.Colored">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:padding">@dimen/default_padding</item>
   </style>
+
+  <style name="Theme.Cinnamon.Button.Colored" parent="Base.Theme.Cinnamon.Button.Colored"/>
 
   <!-- Card Themes -->
   <style name="Theme.Cinnamon.Card" parent="CardView">
@@ -93,15 +124,17 @@
     <item name="android:textStyle">bold</item>
   </style>
 
-  <style name="Theme.Cinnamon.TextAppearance.Headline" parent="TextAppearance.AppCompat.Headline">
+  <style name="Base.Theme.Cinnamon.TextAppearance.Headline" parent="TextAppearance.AppCompat.Headline">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
-    <item name="android:layout_marginLeft">@dimen/default_margin</item>
-    <item name="android:layout_marginRight">@dimen/default_margin</item>
+    <item name="android:layout_margin">@dimen/default_margin</item>
     <item name="android:gravity">center_horizontal</item>
 
+    <item name="android:textColor">@color/primary_text</item>
     <item name="android:textSize">@dimen/primary_text</item>
   </style>
+
+  <style name="Theme.Cinnamon.TextAppearance.Headline" parent="Base.Theme.Cinnamon.TextAppearance.Headline"/>
 
   <style name="Theme.Cinnamon.TextAppearance.Quote" parent="Theme.Cinnamon.TextAppearance.Standard"/>
 

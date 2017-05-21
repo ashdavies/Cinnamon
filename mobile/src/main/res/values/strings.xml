@@ -8,9 +8,25 @@
   <string name="action_favourite">Favourite</string>
   <string name="action_repost">Repost</string>
   <string name="action_share">Share</string>
+  <string name="action_scan_barcode">Scan Barcode</string>
   <string name="action_sign_in">Sign In</string>
   <string name="action_sign_out">Sign Out</string>
   <string name="action_ok">OK</string>
+
+  <!-- Account -->
+  <string name="account_heading_welcome">Welcome to Cinnamon</string>
+  <string name="account_action_kraken">Sign in with Kraken</string>
+  <string name="account_action_google">Sign in with Google</string>
+
+  <!-- Barcode -->
+  <string name="barcode_instruction_text">Place barcode within red lines</string>
+
+  <!-- Errors -->
+  <string name="low_storage_error">low_storage_error</string>
+
+  <!-- Permission -->
+  <string name="no_camera_permission">no_camera_permission</string>
+  <string name="permission_camera_rationale">permission_camera_rationale</string>
 
   <!-- Invitation -->
   <string name="invitation_title">Cinnamon Invite</string>

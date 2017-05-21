@@ -1,4 +1,4 @@
-package io.ashdavies.cinnamon.signin;
+package io.ashdavies.cinnamon.account;
 
 import io.ashdavies.cinnamon.presenter.AbstractViewPresenter;
 import io.ashdavies.cinnamon.rx.AbstractViewError;
@@ -6,19 +6,13 @@ import io.ashdavies.cinnamon.view.AbstractView;
 import io.ashdavies.rx.rxfirebase.RxFirebaseAuth;
 import javax.inject.Inject;
 
-public class SignInPresenter extends AbstractViewPresenter<SignInPresenter.View> {
+public class AccountPresenter extends AbstractViewPresenter<AccountPresenter.View> {
 
   @Inject
-  SignInPresenter() {
+  AccountPresenter() {
   }
 
-  @Override
-  public void onAttach(View view) {
-    super.onAttach(view);
-    signInAnonymously();
-  }
-
-  private void signInAnonymously() {
+  void signInAnonymously() {
     RxFirebaseAuth.getInstance()
         .signInAnonymously()
         .subscribe(authResult -> getView().startHomeActivity(), new AbstractViewError<>(getView()));
