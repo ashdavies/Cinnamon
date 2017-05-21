@@ -20,8 +20,10 @@ ext.versions = [
     ],
 
     auto       : [
-        value   : '1.2',
-        firebase: '1.0.1',
+        decorator: '1.4.3',
+        noOp     : '1.4.3',
+        value    : '1.2',
+        firebase : '1.0.1',
     ],
 
     butterknife: '8.5.1',
@@ -67,16 +69,21 @@ ext.libraries = [
     ],
 
     auto       : [
-        value   : [
-            core    : "io.ashdavies.auto:auto-value:1.4.3",
-            compiler: "com.google.auto.value:auto-value:$versions.auto.value"
-        ],
-
         firebase: [
             core    : "me.mattlogan.auto.value:auto-value-firebase-annotation:$versions.auto.firebase",
             adapter : "me.mattlogan.auto.value:auto-value-firebase-adapter:$versions.auto.firebase",
             compiler: "me.mattlogan.auto.value:auto-value-firebase:$versions.auto.firebase"
-        ]
+        ],
+
+        noOp    : [
+            core    : "io.ashdavies.auto:auto-no-op:$versions.auto.noOp",
+            compiler: "io.ashdavies.auto:auto-no-op-compiler:$versions.auto.noOp"
+        ],
+        
+        value   : [
+            core    : "io.ashdavies.auto:auto-value:1.4.3",
+            compiler: "com.google.auto.value:auto-value:$versions.auto.value"
+        ],
     ],
 
     butterknife: [

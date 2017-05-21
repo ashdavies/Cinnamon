@@ -1,7 +1,6 @@
 package io.ashdavies.cinnamon;
 
 import android.support.v7.app.AppCompatDelegate;
-import com.facebook.stetho.Stetho;
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
 import io.ashdavies.cinnamon.inject.DaggerApplicationComponent;
@@ -25,7 +24,6 @@ public class Cinnamon extends DaggerApplication {
 
     setUpTimber();
     setUpNightMode();
-    setUpStetho();
   }
 
   private void setUpTimber() {
@@ -39,16 +37,5 @@ public class Cinnamon extends DaggerApplication {
 
   private void setUpNightMode() {
     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-  }
-
-  private void setUpStetho() {
-    if (!BuildConfig.DEBUG) {
-      return;
-    }
-
-    Stetho.initialize(Stetho.newInitializerBuilder(this)
-        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
-        .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
-        .build());
   }
 }

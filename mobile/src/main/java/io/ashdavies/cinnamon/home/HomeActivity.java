@@ -1,6 +1,5 @@
 package io.ashdavies.cinnamon.home;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -32,17 +31,11 @@ public class HomeActivity extends AbstractActivity implements HomeView {
   @Inject HomePresenter presenter;
   @Inject Typeface typeface;
 
-  public static void start(Activity activity) {
-    activity.startActivity(new Intent(activity, HomeActivity.class));
-  }
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setSupportActionBar(toolbar);
     setCollapsingToolbarFont();
-
-    presenter.onAttach(this);
   }
 
   private void setCollapsingToolbarFont() {
@@ -52,14 +45,8 @@ public class HomeActivity extends AbstractActivity implements HomeView {
 
   @Override
   public void onBackPressed() {
-    AccountActivity.start(this);
+    startActivity(new Intent(this, AccountActivity.class));
     finish();
-  }
-
-  @Override
-  protected void onDestroy() {
-    super.onDestroy();
-    presenter.onDetach();
   }
 
   @Override
@@ -69,12 +56,12 @@ public class HomeActivity extends AbstractActivity implements HomeView {
 
   @Override
   protected int getMenuId() {
-    return R.menu.home_activity;
+    return R.menu.activity_empty;
   }
 
   @Override
   public void startSignInActivity() {
-    AccountActivity.start(this);
+    startActivity(new Intent(this, AccountActivity.class));
     finish();
   }
 }

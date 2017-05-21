@@ -16,8 +16,13 @@
       android:theme="@style/Theme.Cinnamon">
 
     <activity android:name="io.ashdavies.cinnamon.account.AccountActivity"
-        android:theme="@style/Theme.Cinnamon.Fullscreen.Splash"
-        android:screenOrientation="portrait"/>
+        android:theme="@style/Theme.Cinnamon.Fullscreen"/>
+
+    <activity android:name="io.ashdavies.cinnamon.barcode.BarcodeOnboardingActivity"
+        android:theme="@style/Theme.Cinnamon.Fullscreen"/>
+
+    <activity android:name="io.ashdavies.cinnamon.barcode.BarcodeCaptureActivity"
+        android:theme="@style/Theme.Cinnamon.Fullscreen"/>
 
     <activity android:name="io.ashdavies.cinnamon.home.HomeActivity">
 

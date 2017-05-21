@@ -17,9 +17,7 @@
   <!-- Fullscreen Themes -->
   <style name="Base.Theme.Cinnamon.Fullscreen" parent="Base.Theme.Cinnamon"/>
 
-  <style name="Theme.Cinnamon.Fullscreen" parent="Base.Theme.Cinnamon.Fullscreen"/>
-
-  <style name="Theme.Cinnamon.Fullscreen.Splash" parent="Theme.Cinnamon.Fullscreen">
+  <style name="Theme.Cinnamon.Fullscreen" parent="Base.Theme.Cinnamon.Fullscreen">
     <item name="android:windowBackground">@color/primary_light</item>
   </style>
 
