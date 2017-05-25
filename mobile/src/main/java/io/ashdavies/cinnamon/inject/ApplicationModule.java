@@ -2,7 +2,6 @@ package io.ashdavies.cinnamon.inject;
 
 import android.app.Application;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import dagger.Binds;
 import dagger.Module;
@@ -30,9 +29,4 @@ abstract class ApplicationModule {
 
   @Binds
   abstract ReleasableReferenceManager references(@ForReleasableReferences(ApplicationScope.class) ReleasableReferenceManager references);
-
-  @Provides
-  static Typeface typeface(Application application) {
-    return Typeface.createFromAsset(application.getAssets(), "fonts/product-sans-regular.ttf");
-  }
 }

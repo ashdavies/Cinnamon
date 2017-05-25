@@ -1,7 +1,6 @@
 package io.ashdavies.cinnamon.home;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -12,6 +11,7 @@ import butterknife.BindView;
 import io.ashdavies.cinnamon.R;
 import io.ashdavies.cinnamon.account.AccountActivity;
 import io.ashdavies.cinnamon.activity.AbstractActivity;
+import io.ashdavies.cinnamon.cache.FontCache;
 import javax.inject.Inject;
 
 public class HomeActivity extends AbstractActivity implements HomeView {
@@ -29,7 +29,6 @@ public class HomeActivity extends AbstractActivity implements HomeView {
   @BindView(R.id.actions) FloatingActionButton action;
 
   @Inject HomePresenter presenter;
-  @Inject Typeface typeface;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +38,8 @@ public class HomeActivity extends AbstractActivity implements HomeView {
   }
 
   private void setCollapsingToolbarFont() {
-    collapsing.setCollapsedTitleTypeface(typeface);
-    collapsing.setExpandedTitleTypeface(typeface);
+    collapsing.setCollapsedTitleTypeface(FontCache.get(this, R.string.product_sans_regular));
+    collapsing.setExpandedTitleTypeface(FontCache.get(this, R.string.product_sans_regular));
   }
 
   @Override

@@ -19,7 +19,14 @@
   <string name="account_action_google">Sign in with Google</string>
 
   <!-- Barcode -->
-  <string name="barcode_instruction_text">Place barcode within red lines</string>
+  <string name="barcode_onboarding_headline">Get Started with Kraken</string>
+  <string name="barcode_onboarding_description"><![CDATA[
+    1. Log in to your Kraken account\n
+    2. Navigate to Settings -> API\n
+    3. Create a new API key\n
+    4. Scan the QR code
+  ]]></string>
+  <string name="barcode_onboarding_action_get_started">Get Started</string>
 
   <!-- Errors -->
   <string name="low_storage_error">low_storage_error</string>

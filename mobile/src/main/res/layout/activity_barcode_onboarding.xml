@@ -2,7 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Theme.Cinnamon.Layout.Vertical"
+    android:background="@color/primary"
     android:layout_height="match_parent"
     tools:context="io.ashdavies.cinnamon.account.AccountActivity">
+
+  <LinearLayout
+      style="@style/Theme.Cinnamon.Layout.Vertical"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      tools:ignore="InefficientWeight,Suspicious0dp">
+
+    <ImageView
+        android:background="@drawable/background_oval_dark"
+        android:contentDescription="@null"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_margin="@dimen/default_padding"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        style="@style/Theme.Cinnamon.TextAppearance.Headline"
+        android:text="@string/barcode_onboarding_headline"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        style="@style/Theme.Cinnamon.TextAppearance.Standard"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/default_padding"
+        android:text="@string/barcode_onboarding_description"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/primary_text"/>
+
+  </LinearLayout>
+
+  <Button
+      style="@style/Theme.Cinnamon.Button"
+      android:layout_width="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:id="@+id/action_next"
+      android:text="@string/barcode_onboarding_action_get_started"/>
 
 </LinearLayout>

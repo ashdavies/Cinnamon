@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="product_sans_bold" translatable="false">product-sans-bold</string>
+  <string name="product_sans_bold_italic" translatable="false">product-sans-bold-italic</string>
+  <string name="product_sans_italic" translatable="false">product-sans-italic</string>
+  <string name="product_sans_regular" translatable="false">product-sans-regular</string>
+</resources>

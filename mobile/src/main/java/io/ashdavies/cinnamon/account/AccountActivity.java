@@ -1,8 +1,6 @@
 package io.ashdavies.cinnamon.account;
 
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.os.Bundle;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -17,13 +15,6 @@ public class AccountActivity extends AbstractActivity implements AccountView {
 
   @Inject AccountPresenter presenter;
   @Inject AccountActivity activity;
-  @Inject Typeface typeface;
-
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    welcome.setTypeface(typeface);
-  }
 
   @Override
   protected int getLayoutId() {
