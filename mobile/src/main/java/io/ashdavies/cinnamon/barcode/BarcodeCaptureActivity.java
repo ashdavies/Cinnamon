@@ -1,6 +1,7 @@
 package io.ashdavies.cinnamon.barcode;
 
 import android.content.Intent;
+import android.os.Bundle;
 import com.edwardvanraak.materialbarcodescanner.MaterialBarcodeScanner;
 import com.google.android.gms.vision.barcode.Barcode;
 import io.ashdavies.cinnamon.R;
@@ -12,6 +13,12 @@ public class BarcodeCaptureActivity extends AbstractActivity implements Material
   private static final String EXTRA_BARCODE = "extra.barcode";
 
   @Inject MaterialBarcodeScanner scanner;
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    scanner.startScan();
+  }
 
   @Override
   protected int getLayoutId() {
@@ -29,6 +36,12 @@ public class BarcodeCaptureActivity extends AbstractActivity implements Material
     intent.putExtra(EXTRA_BARCODE, barcode);
 
     setResult(RESULT_OK, intent);
+    finish();
+  }
+
+  @Override
+  public void onBackPressed() {
+    super.onBackPressed();
     finish();
   }
 

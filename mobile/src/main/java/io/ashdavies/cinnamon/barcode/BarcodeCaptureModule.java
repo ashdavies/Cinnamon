@@ -20,9 +20,9 @@ public interface BarcodeCaptureModule {
   static MaterialBarcodeScanner scanner(FragmentActivity activity, MaterialBarcodeScanner.OnResultListener listener) {
     return new MaterialBarcodeScannerBuilder()
         .withActivity(activity)
-        .withEnableAutoFocus(true)
-        .withBleepEnabled(true)
         .withBackfacingCamera()
+        .withEnableAutoFocus(true)
+        .withOnlyQRCodeScanning()
         .withResultListener(listener)
         .build();
   }

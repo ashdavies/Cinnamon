@@ -11,6 +11,8 @@ import javax.inject.Inject;
 
 public class AccountActivity extends AbstractActivity implements AccountView {
 
+  private static final int REQUEST_BARCODE_CAPTURE = 0x14;
+
   @BindView(R.id.headline_welcome) TextView welcome;
 
   @Inject AccountPresenter presenter;
@@ -32,7 +34,18 @@ public class AccountActivity extends AbstractActivity implements AccountView {
 
   @OnClick(R.id.action_account_kraken)
   void onKrakenAccountClick() {
-    startActivity(new Intent(this, BarcodeOnboardingActivity.class));
-    finish();
+    startActivityForResult(new Intent(this, BarcodeOnboardingActivity.class), REQUEST_BARCODE_CAPTURE);
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    switch (requestCode) {
+      case REQUEST_BARCODE_CAPTURE:
+        presenter.onBarcodeResult(resultCode, data);
+        return;
+
+      default:
+        super.onActivityResult(requestCode, resultCode, data);
+    }
   }
 }

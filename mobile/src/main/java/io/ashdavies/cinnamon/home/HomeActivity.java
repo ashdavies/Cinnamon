@@ -37,6 +37,12 @@ public class HomeActivity extends AbstractActivity implements HomeView {
     setCollapsingToolbarFont();
   }
 
+  @Override
+  protected void onResume() {
+    super.onResume();
+    onBackPressed();
+  }
+
   private void setCollapsingToolbarFont() {
     collapsing.setCollapsedTitleTypeface(FontCache.get(this, R.string.product_sans_regular));
     collapsing.setExpandedTitleTypeface(FontCache.get(this, R.string.product_sans_regular));

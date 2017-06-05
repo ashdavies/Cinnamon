@@ -56,6 +56,11 @@ dependencies {
   compile libraries.android.support.design
   compile libraries.android.support.recycler
 
+  // Architecture
+  compile libraries.android.arch.lifecycle.runtime
+  compile libraries.android.arch.lifecycle.extensions
+  annotationProcessor libraries.android.arch.lifecycle.compiler
+
   // Google Play
   compile libraries.google.play.services
   compile libraries.google.play.vision
@@ -95,7 +100,10 @@ dependencies {
   compile libraries.timber
 
   // Barcode
-  compile 'com.edwardvanraak:MaterialBarcodeScanner:0.0.6-ALPHA'
+  compile libraries.scanner
+
+  // Conceal
+  compile libraries.conceal
 
   // AutoNoOp
   compile libraries.auto.noOp.core
