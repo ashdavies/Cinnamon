@@ -38,6 +38,7 @@ ext.versions = [
         ]
     ],
 
+    kotlin     : '1.1.3',
     okHttp     : '3.5.0',
     retrofit   : '2.2.0',
 
@@ -138,6 +139,8 @@ ext.libraries = [
         crash    : "com.google.firebase:firebase-crash:$versions.google.play.services",
         analytics: "com.google.firebase:firebase-analytics:$versions.google.play.services",
     ],
+
+    kotlin     : "org.jetbrains.kotlin:kotlin-stdlib-jre8:$versions.kotlin",
 
     okhttp     : [
         core   : "com.squareup.okhttp3:okhttp:$versions.okHttp",

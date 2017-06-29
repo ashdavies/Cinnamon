@@ -8,7 +8,8 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.0-alpha1'
+    classpath 'com.android.tools.build:gradle:3.0.0-alpha4'
+    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.3'
     classpath 'com.google.gms:google-services:3.0.0'
 
     classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
@@ -16,6 +17,9 @@ buildscript {
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
 apply plugin: 'jacoco-android'
 
 apply from: '../tools/script-dependencies.gradle'
@@ -46,9 +50,20 @@ android {
     sourceCompatibility configuration.sourceCompatibility
     targetCompatibility configuration.targetCompatibility
   }
+
+  sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+  }
+}
+
+kapt {
+  correctErrorTypes = true
 }
 
 dependencies {
+
+  // Kotlin
+  compile libraries.kotlin
 
   // Support
   compile libraries.android.support.compat
@@ -59,7 +74,7 @@ dependencies {
   // Architecture
   compile libraries.android.arch.lifecycle.runtime
   compile libraries.android.arch.lifecycle.extensions
-  annotationProcessor libraries.android.arch.lifecycle.compiler
+  kapt libraries.android.arch.lifecycle.compiler
 
   // Google Play
   compile libraries.google.play.services
@@ -67,13 +82,13 @@ dependencies {
 
   // ButterKnife
   compile libraries.butterknife.core
-  annotationProcessor libraries.butterknife.compiler
+  kapt libraries.butterknife.compiler
 
   // Dagger
   compile libraries.dagger.core
   compile libraries.dagger.android.support
-  annotationProcessor libraries.dagger.compiler
-  annotationProcessor libraries.dagger.android.processor
+  kapt libraries.dagger.compiler
+  kapt libraries.dagger.android.processor
 
   // Firebase
   compile libraries.firebase.core
@@ -107,16 +122,16 @@ dependencies {
 
   // AutoNoOp
   compile libraries.auto.noOp.core
-  annotationProcessor libraries.auto.noOp.compiler
+  kapt libraries.auto.noOp.compiler
 
   // AutoValue
   compile libraries.auto.value.core
-  annotationProcessor libraries.auto.value.compiler
+  kapt libraries.auto.value.compiler
 
   // AutoValue: Firebase
   compile libraries.auto.firebase.adapter
   provided libraries.auto.firebase.core
-  annotationProcessor libraries.auto.firebase.compiler
+  kapt libraries.auto.firebase.compiler
 
   // Testing
   testCompile libraries.jUnit
