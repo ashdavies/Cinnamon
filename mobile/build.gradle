@@ -1,18 +1,20 @@
 buildscript {
   repositories {
     jcenter()
-
-    maven {
-      url 'https://maven.google.com'
-    }
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.0-alpha4'
+    classpath 'com.android.tools.build:gradle:3.0.0-alpha5'
     classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.3'
     classpath 'com.google.gms:google-services:3.0.0'
 
     classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
+  }
+}
+
+repositories {
+  maven {
+    url 'https://maven.google.com'
   }
 }
 
@@ -33,6 +35,8 @@ android {
     debug {
       minifyEnabled false
       multiDexEnabled true
+
+      testCoverageEnabled true
     }
   }
 
@@ -119,19 +123,6 @@ dependencies {
 
   // Conceal
   compile libraries.conceal
-
-  // AutoNoOp
-  compile libraries.auto.noOp.core
-  kapt libraries.auto.noOp.compiler
-
-  // AutoValue
-  compile libraries.auto.value.core
-  kapt libraries.auto.value.compiler
-
-  // AutoValue: Firebase
-  compile libraries.auto.firebase.adapter
-  provided libraries.auto.firebase.core
-  kapt libraries.auto.firebase.compiler
 
   // Testing
   testCompile libraries.jUnit

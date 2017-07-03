@@ -1,38 +1,28 @@
 package io.ashdavies.cinnamon.activity;
 
-import android.arch.lifecycle.LifecycleActivity;
+import android.arch.lifecycle.LifecycleRegistry;
+import android.arch.lifecycle.LifecycleRegistryOwner;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.MenuRes;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import butterknife.ButterKnife;
-import dagger.android.AndroidInjection;
-import dagger.android.AndroidInjector;
-import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasFragmentInjector;
-import dagger.android.support.HasSupportFragmentInjector;
+import dagger.android.support.DaggerAppCompatActivity;
 import io.ashdavies.cinnamon.R;
 import io.ashdavies.cinnamon.view.AbstractView;
-import javax.inject.Inject;
 import timber.log.Timber;
 
-public abstract class AbstractActivity extends LifecycleActivity implements AbstractView, HasFragmentInjector, HasSupportFragmentInjector {
+public abstract class AbstractActivity extends DaggerAppCompatActivity implements AbstractView, LifecycleRegistryOwner {
 
-  @Inject
-  DispatchingAndroidInjector<Fragment> supportFragmentInjector;
-
-  @Inject
-  DispatchingAndroidInjector<android.app.Fragment> frameworkFragmentInjector;
+  private final LifecycleRegistry registry = new LifecycleRegistry(this);
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    AndroidInjection.inject(this);
     super.onCreate(savedInstanceState);
     setContentView(getLayoutId());
   }
@@ -90,12 +80,7 @@ public abstract class AbstractActivity extends LifecycleActivity implements Abst
   }
 
   @Override
-  public AndroidInjector<Fragment> supportFragmentInjector() {
-    return this.supportFragmentInjector;
-  }
-
-  @Override
-  public AndroidInjector<android.app.Fragment> fragmentInjector() {
-    return this.frameworkFragmentInjector;
+  public LifecycleRegistry getLifecycle() {
+    return registry;
   }
 }

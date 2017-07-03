@@ -2,22 +2,22 @@ package io.ashdavies.cinnamon.account;
 
 import android.app.Activity;
 import android.content.Intent;
-import com.facebook.crypto.Crypto;
-import com.facebook.crypto.Entity;
 import com.google.android.gms.vision.barcode.Barcode;
 import io.ashdavies.cinnamon.barcode.BarcodeCaptureActivity;
+import io.ashdavies.cinnamon.barcode.BarcodePreferenceStorage;
 import io.ashdavies.cinnamon.presenter.AbstractViewPresenter;
 import javax.inject.Inject;
+import timber.log.Timber;
 
 public class AccountPresenter extends AbstractViewPresenter<AccountView> {
 
-  private final Crypto crypto;
+  private final BarcodePreferenceStorage storage;
 
   @Inject
-  AccountPresenter(AccountView view, Crypto crypto) {
+  AccountPresenter(AccountView view, BarcodePreferenceStorage storage) {
     super(view);
 
-    this.crypto = crypto;
+    this.storage = storage;
   }
 
   void onBarcodeResult(int resultCode, Intent data) {
@@ -25,9 +25,18 @@ public class AccountPresenter extends AbstractViewPresenter<AccountView> {
       return;
     }
 
-    Barcode barcode = BarcodeCaptureActivity.fromResult(data);
+    onBarcodeResult(BarcodeCaptureActivity.fromResult(data));
+  }
 
-    // factory class also has explicit methods: createCrypto128Bits and ceateCrypto256Bits if desired.
-    Entity entity = Entity.create(barcode.displayValue);
+  private void onBarcodeResult(Barcode barcode) {
+    try {
+      storage.put(barcode);
+    } catch (Exception exception) {
+      Timber.e(exception);
+    }
+  }
+
+  void onGoogleLogin() {
+    
   }
 }

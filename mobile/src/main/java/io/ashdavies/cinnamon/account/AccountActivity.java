@@ -30,6 +30,7 @@ public class AccountActivity extends AbstractActivity implements AccountView {
 
   @OnClick(R.id.action_account_google)
   void onGoogleAccountClick() {
+    presenter.onGoogleLogin();
   }
 
   @OnClick(R.id.action_account_kraken)
