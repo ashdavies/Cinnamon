@@ -8,7 +8,7 @@ public class Navigator {
   private final FragmentActivity activity;
 
   @Inject
-  public Navigator(FragmentActivity activity) {
+  Navigator(FragmentActivity activity) {
     this.activity = activity;
   }
 
