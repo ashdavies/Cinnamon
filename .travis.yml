@@ -26,7 +26,7 @@ cache:
     - $HOME/.gradle
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_71a9f7d2e869_key -iv $encrypted_71a9f7d2e869_iv -in mobile/google-services.json.enc -out mobile/google-services.json -d
+  - openssl aes-256-cbc -K $encrypted_852f7aaef146_key -iv $encrypted_852f7aaef146_iv -in mobile/google-services.json.enc -out mobile/google-services.json -d
 
 before_script:
   - chmod +x gradlew
