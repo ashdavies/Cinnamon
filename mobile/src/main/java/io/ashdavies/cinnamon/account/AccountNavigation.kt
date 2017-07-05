@@ -5,6 +5,7 @@ import android.content.Intent
 import io.ashdavies.cinnamon.barcode.BarcodeOnboardingActivity
 import io.ashdavies.cinnamon.common.Navigator
 import io.ashdavies.cinnamon.google.GoogleSignInClient
+import io.ashdavies.cinnamon.home.HomeActivity
 import javax.inject.Inject
 
 internal class AccountNavigation @Inject constructor(val navigator: Navigator, val client: GoogleSignInClient) {
@@ -25,13 +26,21 @@ internal class AccountNavigation @Inject constructor(val navigator: Navigator, v
     return requestCode == REQUEST_CODE_BARCODE_CAPTURE
   }
 
+  internal fun navigateToHome() {
+    navigator.navigate { activity -> activity.startActivity(HomeActivity::class.java) }
+  }
+
+  private fun Activity.startActivity(kls: Class<out Activity>) {
+    startActivity(Intent(this, kls))
+  }
+
   private fun Activity.startActivityForResult(kls: Class<out Activity>, requestCode: Int) {
     startActivityForResult(Intent(this, kls), requestCode)
   }
 
   companion object {
-
     private val REQUEST_CODE_GOOGLE_SIGN_IN = 0x91
     private val REQUEST_CODE_BARCODE_CAPTURE = 0x92
+
   }
 }
