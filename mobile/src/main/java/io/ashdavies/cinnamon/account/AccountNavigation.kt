@@ -1,17 +1,37 @@
 package io.ashdavies.cinnamon.account
 
+import android.app.Activity
+import android.content.Intent
+import io.ashdavies.cinnamon.barcode.BarcodeOnboardingActivity
 import io.ashdavies.cinnamon.common.Navigator
 import io.ashdavies.cinnamon.google.GoogleSignInClient
 import javax.inject.Inject
 
 internal class AccountNavigation @Inject constructor(val navigator: Navigator, val client: GoogleSignInClient) {
 
-  fun navigateToSignIn() {
-    navigator.navigate { activity -> activity.startActivityForResult(client.signInIntent, RC_SIGN_IN) }
+  internal fun navigateToGoogleSignIn() {
+    navigator.navigate { activity -> activity.startActivityForResult(client.signInIntent, REQUEST_CODE_GOOGLE_SIGN_IN) }
+  }
+
+  internal fun isFromGoogleSignIn(requestCode: Int): Boolean {
+    return requestCode == REQUEST_CODE_GOOGLE_SIGN_IN
+  }
+
+  internal fun navigateToBarcodeCapture() {
+    navigator.navigate { activity -> activity.startActivityForResult(BarcodeOnboardingActivity::class.java, REQUEST_CODE_BARCODE_CAPTURE) }
+  }
+
+  internal fun isFromBarcodeCapture(requestCode: Int): Boolean {
+    return requestCode == REQUEST_CODE_BARCODE_CAPTURE
+  }
+
+  private fun Activity.startActivityForResult(kls: Class<out Activity>, requestCode: Int) {
+    startActivityForResult(Intent(this, kls), requestCode)
   }
 
   companion object {
 
-    private val RC_SIGN_IN = 0x91
+    private val REQUEST_CODE_GOOGLE_SIGN_IN = 0x91
+    private val REQUEST_CODE_BARCODE_CAPTURE = 0x92
   }
 }
