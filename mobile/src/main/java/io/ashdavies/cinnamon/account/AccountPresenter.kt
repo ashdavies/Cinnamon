@@ -3,12 +3,14 @@ package io.ashdavies.cinnamon.account
 import android.app.Activity
 import android.content.Intent
 import com.google.android.gms.auth.api.Auth
-import com.google.firebase.auth.FirebaseAuth
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.GoogleAuthProvider
 import io.ashdavies.cinnamon.barcode.BarcodeCaptureActivity
 import io.ashdavies.cinnamon.barcode.BarcodePreferenceStorage
 import io.ashdavies.cinnamon.google.GoogleSignInException
 import io.ashdavies.cinnamon.presenter.AbstractViewPresenter
+import io.ashdavies.rx.rxfirebase.RxFirebaseAuth
 import javax.inject.Inject
 
 internal class AccountPresenter @Inject internal constructor(
@@ -44,18 +46,19 @@ internal class AccountPresenter @Inject internal constructor(
     }
 
     val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
-    if (result.isSuccess) {
+    if (!result.isSuccess) {  
       view.onError(GoogleSignInException(result))
       return
     }
 
-    FirebaseAuth.getInstance()
-        .signInWithCredential(GoogleAuthProvider.getCredential(result.signInAccount?.idToken, null))
-        .addOnSuccessListener { result ->
-          accounts.store(result.user)
-          navigation.navigateToHome()
-        }
-        .addOnFailureListener { throwable -> view.onError(throwable) }
+    RxFirebaseAuth.getInstance()
+        .signInWithCredential(result.signInAccount?.getCredential())
+        .flatMapCompletable { result -> accounts.store(result.user) }
+        .subscribe({ navigation.navigateToHome() }, view::onError)
+  }
+
+  private fun GoogleSignInAccount.getCredential(): AuthCredential {
+    return GoogleAuthProvider.getCredential(idToken, null)
   }
 
   private fun onBarcodeCaptureResult(resultCode: Int, data: Intent) {

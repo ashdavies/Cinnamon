@@ -1,20 +1,20 @@
 package io.ashdavies.cinnamon.account
 
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.FirebaseDatabase
+import io.ashdavies.rx.rxfirebase.RxFirebaseDatabase
+import io.reactivex.Completable
 import javax.inject.Inject
 
 class AccountRepository @Inject constructor() {
 
-  internal fun store(user: FirebaseUser?) {
-    FirebaseDatabase.getInstance()
-        .getReference(REFERENCE_CHILD)
-        .child(user!!.uid)
+  internal fun store(user: FirebaseUser?): Completable {
+    return RxFirebaseDatabase.getInstance()
+        .child(REFERENCE_CHILD.format(user!!.uid))
         .setValue(user)
   }
 
   companion object {
 
-    val REFERENCE_CHILD = "users"
+    val REFERENCE_CHILD = "users/%s"
   }
 }

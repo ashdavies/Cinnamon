@@ -11,7 +11,7 @@ import javax.inject.Inject
 internal class AccountNavigation @Inject constructor(val navigator: Navigator, val client: GoogleSignInClient) {
 
   internal fun navigateToGoogleSignIn() {
-    navigator.navigate { activity -> activity.startActivityForResult(client.signInIntent, REQUEST_CODE_GOOGLE_SIGN_IN) }
+    navigator.navigate { activity -> activity.startActivityForResult(client.getSignInIntent(), REQUEST_CODE_GOOGLE_SIGN_IN) }
   }
 
   internal fun isFromGoogleSignIn(requestCode: Int): Boolean {
