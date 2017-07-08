@@ -46,7 +46,7 @@ internal class AccountPresenter @Inject internal constructor(
     }
 
     val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
-    if (!result.isSuccess) {  
+    if (!result.isSuccess) {
       view.onError(GoogleSignInException(result))
       return
     }
