@@ -29,6 +29,13 @@
           android:layout_height="?attr/actionBarSize"
           app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
+      <android.support.design.widget.FloatingActionButton
+          android:id="@+id/actions"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="bottom|end"
+          android:layout_margin="@dimen/default_margin"/>
+
     </android.support.design.widget.CollapsingToolbarLayout>
 
   </android.support.design.widget.AppBarLayout>
@@ -96,12 +103,5 @@
     </LinearLayout>
 
   </android.support.v4.widget.NestedScrollView>
-
-  <android.support.design.widget.FloatingActionButton
-      android:id="@+id/actions"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="bottom|end"
-      android:layout_margin="@dimen/default_margin"/>
 
 </android.support.design.widget.CoordinatorLayout>
