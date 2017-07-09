@@ -17,7 +17,7 @@ public class FontCache {
   public static Typeface get(Context context, @StringRes int resId) {
     return get(context, context.getString(resId));
   }
-  
+
   public static Typeface get(Context context, String font) {
     synchronized (cache) {
       if (!cache.containsKey(font)) {
